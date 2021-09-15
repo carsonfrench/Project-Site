@@ -1,37 +1,14 @@
-## Welcome to GitHub Pages
+## Movie Script Writer
 
-You can use the [editor on GitHub](https://github.com/carsonfrench/Project-Site/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+### Project Description
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+I will train neural networks to write a script given a movie’s synopsis and metadata. The final product will be an application where you can enter your synopsis, genre, characters, and runtime and your script will be generated. The purpose for this project is to simplify the screenwriting process to allow screenwriters to have a pre-made script created solely from the characters and general idea of the plot. The screenwriting process and formatting can be complicated and tedious. Ideally, the generated script will at least offer a starting point for the final script. I plan on using the dataset MovieNet which has metadata of 375K movies, 11K synopses, and 982 scripts.
 
-### Markdown
+I plan on using a GANs or Generative Adversarial Networks for this project. I am unsure if the data from MovieNet will be enough for training since there are only 982 scripts. If it is too difficult to train the networks with the amount of data, we could try using other datasets with scripts such as Cornell Movie with 617 scripts. 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/carsonfrench/Project-Site/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Goals
+1. Formatting should be correct and consistent
+2. Dialogue should be realistic
+3. The overall storyline and genre should carry over into the script
+4. Characters should stay consistent to their unique traits 
+5. The script lengths should match the desired runtime
