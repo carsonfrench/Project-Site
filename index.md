@@ -1,8 +1,7 @@
 ## Poster Generator
+Chloe, David, Nate, Carson, and Pei Pei
 
 ### Project Description
-
-Chloe, David, Nate, Carson, and Pei Pei
 
 We want to create a GAN to generate movie posters, investigating if a neural network can create visually interesting and convincing art that we can use to decorate our dorms.
 This problem is hard because movie posters are usually focused on cohesive designs that center around a few important objects, whereas recently created generative art struggles with emphasis around clearly recognizable elements, instead focusing on emulating stylistic aspects of different genres.
