@@ -1,14 +1,13 @@
-## Movie Script Writer
+## Poster Generator
 
 ### Project Description
 
-I will train neural networks to write a script given a movie’s synopsis and metadata. The final product will be an application where you can enter your synopsis, genre, characters, and runtime and your script will be generated. The purpose for this project is to simplify the screenwriting process to allow screenwriters to have a pre-made script created solely from the characters and general idea of the plot. The screenwriting process and formatting can be complicated and tedious. Ideally, the generated script will at least offer a starting point for the final script. I plan on using the dataset MovieNet which has metadata of 375K movies, 11K synopses, and 982 scripts.
+Chloe, David, Nate, Carson, and Pei Pei
 
-I plan on using a GANs or Generative Adversarial Networks for this project. I am unsure if the data from MovieNet will be enough for training since there are only 982 scripts. If it is too difficult to train the networks with the amount of data, we could try using other datasets with scripts such as Cornell Movie with 617 scripts. 
-
-### Goals
-1. Formatting should be correct and consistent
-2. Dialogue should be realistic
-3. The overall storyline and genre should carry over into the script
-4. Characters should stay consistent to their unique traits 
-5. The script lengths should match the desired runtime
+We want to create a GAN to generate movie posters, investigating if a neural network can create visually interesting and convincing art that we can use to decorate our dorms.
+This problem is hard because movie posters are usually focused on cohesive designs that center around a few important objects, whereas recently created generative art struggles with emphasis around clearly recognizable elements, instead focusing on emulating stylistic aspects of different genres.
+We intend to experiment with specific styles of posters in order to generate designs that are visually appealing and use graphic design principles instead of just throwing a bunch of objects together.
+We will most likely face many technical challenges. Right now one major challenge is finding a good dataset for posters.
+Our results will hopefully generate decent looking posters and contribute to discourse about the role of AI in art and design.
+Ethical implications: 
+If we train an AI to generate posters based on existing movie posters, it raises the question of where credit should be given - is the AI artist responsible for the work? Furthermore, how close the results are to the training sets could result in plagiarism, and would the subsequent responsibilities lie on the AI or the creators?
