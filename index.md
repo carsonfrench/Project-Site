@@ -16,7 +16,7 @@ Our results will hopefully generate decent looking posters and contribute to dis
 Ethical implications: 
 If we train an AI to generate posters based on existing movie posters, it raises the question of where credit should be given - is the AI artist responsible for the work? Furthermore, how close the results are to the training sets could result in plagiarism, and would the subsequent responsibilities lie on the AI or the creators?
 
-## Related Literature
+### Related Literature
 
 1. [CAN: Creative Adversarial Networks, Generating "Art" by Learning About Styles and Deviating from Style Norms](https://arxiv.org/abs/1706.07068)
 
