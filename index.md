@@ -41,22 +41,22 @@ If we train an AI to generate posters based on existing movie posters, it raises
 ### Project Update 1
 
 - Name and link to the software you will use (or state that you are writing something from scratch).
-    - [PyTorch](https://pytorch.org/) (use to make a GAN)
+  - [PyTorch](https://pytorch.org/) (use to make a GAN)
 - Name and link to the dataset that you will be using (or state how you will create your own dataset).
-    - [41K movie posters from IMDB](https://www.kaggle.com/dadajonjurakuziev/movieposter)
+  - [41K movie posters from IMDB](https://www.kaggle.com/dadajonjurakuziev/movieposter)
 - Provide a high-level overview of the following:
-    - The type of neural network you will use (e.g., fully connected, convolutional, recurrent, etc.)
-          - Deep Convolutional Generative Adversarial Network
-    - The shape and type of your inputs (are they three-channel images? sequences of words? a vector of floating-point values? embeddings? etc.)
-          - Training input: three-channel poster images
-          - Shape of single input: (3, 386, 256)
-              - 3 = number of channels
-              - 386 = height in px
-              - 256 = width in px
-              - (if there are images in a different resolution, we will rescale them)
-          - Generation input: random noise
-              - May potentially add an extra variable, i.e. genre, and change our network to a conditional GAN 
-    - The shape and type of your outputs (are you performing classification? regression? segmentation?, etc.)
-          - We are outputting three-channel images, shape(3, 386, 256)
+  - The type of neural network you will use (e.g., fully connected, convolutional, recurrent, etc.)
+   - Deep Convolutional Generative Adversarial Network
+  - The shape and type of your inputs (are they three-channel images? sequences of words? a vector of floating-point values? embeddings? etc.)
+   - Training input: three-channel poster images
+    - Shape of single input: (3, 386, 256)
+     - 3 = number of channels
+     - 386 = height in px
+     - 256 = width in px   
+     - (if there are images in a different resolution, we will rescale them)
+   - Generation input: random noise
+    - May potentially add an extra variable, i.e. genre, and change our network to a conditional GAN 
+  - The shape and type of your outputs (are you performing classification? regression? segmentation?, etc.)
+   - We are outputting three-channel images, shape(3, 386, 256)
 
 
