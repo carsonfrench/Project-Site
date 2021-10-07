@@ -46,26 +46,17 @@ If we train an AI to generate posters based on existing movie posters, it raises
     - [41K movie posters from IMDB](https://www.kaggle.com/dadajonjurakuziev/movieposter)
 - Provide a high-level overview of the following:
     - The type of neural network you will use (e.g., fully connected, convolutional, recurrent, etc.)
-      
-      Deep Convolutional Generative Adversarial Network
+          - Deep Convolutional Generative Adversarial Network
     - The shape and type of your inputs (are they three-channel images? sequences of words? a vector of floating-point values? embeddings? etc.)
-
-    -Training input: three-channel poster images
-    - Shape of single input: (3, 386, 256)
-    
-    3 = number of channels
-    
-    386 = height in px
-    
-    256 = width in px
-
-    (if there are images in a different resolution, we will rescale them)
-    
-    Generation input: random noise
-
-    May potentially add an extra variable, i.e. genre, and change our network to a conditional GAN 
-
-- The shape and type of your outputs (are you performing classification? regression? segmentation?, etc.)
-    - We are outputting three-channel images, shape(3, 386, 256)
+          - Training input: three-channel poster images
+          - Shape of single input: (3, 386, 256)
+                - 3 = number of channels
+                - 386 = height in px
+                - 256 = width in px
+                - (if there are images in a different resolution, we will rescale them)
+          - Generation input: random noise
+                - May potentially add an extra variable, i.e. genre, and change our network to a conditional GAN 
+    - The shape and type of your outputs (are you performing classification? regression? segmentation?, etc.)
+          - We are outputting three-channel images, shape(3, 386, 256)
 
 
