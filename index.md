@@ -28,6 +28,12 @@ In ["Visual Indeterminacy in GAN Art"](https://direct.mit.edu/leon/article/53/4/
 
 In ["Modeling Artistic Workflows for Image Generation and Editing"](https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123630154.pdf), the authors of the paper propose a model that generates images in a given art style and image early in the artist's creation process with the intention of producing a completed image in the correct style and revamping the process of creating art. In order to achieve this the authors design a new optimization process with learning based regularization that prevents the model from overfitting and deconstructing the original art style but allows for the model to create new and unique images. This project was completed for Adobe Inc, so the authors had access to numerous images and image drafts, however they minimized variance by restricting their images in their dataset to chairs, anime drawings, and faces.
     
+    
+## Methods Outline
+
+We plan to use Pytorch to create a Deep Convolutional Generative Adversarial Network. This network will take poster image inputs from our Kaggle poster dataset of 41,000 images. Each input will be a three-channel poster image of 396x256 pixels (resizing inputs as needed so they fit this size). We will use random noise as an input to the generator, concatenate the generated output with real poster images, and pass everything to the discriminator in order to train it. Once we have trained the discriminator, we will train the generator, which will take random input noise and output three-channel images, shape(3, 386, 256). We will train the generator and discriminator simultaneously, adjusting learning rates and loss functions until we are satisfied with the results.
+
+ 
 ### Project Update 1
 
 - Name and link to the software you will use (or state that you are writing something from scratch).
