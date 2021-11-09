@@ -41,7 +41,7 @@ The nature of the data and the project goals necessitates a subjective evaluatio
 
 Compared to other similar projects, our image quality is lower resolution, as our current images are 64 x 64 pixels. However, the diversity of images trained is much greater, as the data set is incredibly comprehensive across a variety of different styles and genres of movie posters. 
 
-In providing a side by side comparison of our generated posters and the original posters that we trained on, we hope to show how images created by neural nets approach realism but still struggle with noticeable visual specificity.
+In providing a side by side comparison of our generated posters and the original posters that we trained on, we hope to show how images created by neural nets can approach realism but still struggle with noticeable visual specificity.
 
 
 ### Project Update 1
