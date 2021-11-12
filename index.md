@@ -79,4 +79,12 @@ In providing a side by side comparison of our generated posters and the original
   - Initially working with the dataset on the server
     
 
+### Discussion Outline
+- The project’s final product is an app that can present different sets of generated poster images, including images generated based on the entire data set as well as images generated based on genres such as horror or action. 
+
+- The nature of the data and the project goals necessitates a subjective evaluation of the final products; there is no commonly used objective evaluation function for GANs. As a result, the evaluation must purely depend on the viewer’s comparison between the real images and the generated artworks. We performed a qualitative check of images for mode collapse. Loss plots were used predominantly to ensure neither network was training much more quickly than the other. 
+
+- Compared to other similar projects, our image quality is lower resolution, as our current images are 64 x 64 pixels. However, the diversity of images trained is much greater, as the data set is incredibly comprehensive across a variety of different styles and genres of movie posters. 
+
+- In providing a side by side comparison of our generated posters and the original posters that we trained on, we hope to show how images created by neural nets approach realism but still struggle with noticeable visual specificity.
 
