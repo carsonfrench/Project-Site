@@ -105,6 +105,8 @@ The project’s final product is a model that can present different sets of gene
 The nature of the data and the project goals necessitates a subjective evaluation of the final products; there is no commonly used objective evaluation function for GANs. As a result, the evaluation must purely depend on the viewer’s comparison between the real images and the generated artworks. We performed a qualitative check of images for mode collapse. Loss plots were used predominantly to ensure neither network was training much more quickly than the other. 
 However, one of the initial problems that we ran into was a failure to converge, in which the generator and discriminator fail to find an equilibrium. In our case, the discriminator overpowered the generator. This is due to the discriminator training too fast in comparison to the generator, and being able to predict real and fake images near perfectly, and the generator providing fake images that were too easily identifiable. Over multiple epochs, this would continue due to a lack of useful information from the discriminator and the generator would be unable to progress. However, this was eventually fixed by fine-tuning network hyperparameters. 
 
+![Graph of generator and discriminator losses failing to converge](graph1.png)
+
 Compared to other similar projects, our image quality is lower resolution, as our current images are 64 x 64 pixels. However, the diversity of images trained is much greater, as the data set is incredibly comprehensive across a variety of different styles and genres of movie posters. Additionally, we are currently experimenting with models that generate 128 x 128 and 256 x 256 pixel images. However, we are encountering difficulties with either the generator or the discriminator training too quickly and thus failing to converge, much like in the example above. It also presents additional difficulty in balancing the complexity of the discriminator and generator architectures.
 
 In providing a side by side comparison of our generated posters and the original posters that we trained on, we hope to show how images created by neural nets approach realism but still struggle with noticeable visual specificity. Our generated images are approximating the depiction of text and faces, but are still generally illegible or unrecognizable. 
@@ -126,5 +128,10 @@ We were satisfied with the results of our GAN. Overall, the large dataset (41,00
 
 In the future, we would like to explore different sub-genres of posters. We briefly experimented with generating horror posters, which had a more uniform aesthetics than all genres combined. We could further explore horror posters, in addition to other genres like action. Additionally, most posters generated included faces. One additional step for this project would be to add more training data with faces in order to generate faces with more detail. Overall, this project was an informative exercise in creating a GAN, and left us with some fun (and maybe a little eerie) generated posters.
 
+![Results at 10 epochs](10epochs.png)
+
+![Results at 20 epochs](20epochs.png)
+
+![Results at 100 epochs](30epochs.png)
 
 
