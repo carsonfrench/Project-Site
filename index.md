@@ -79,4 +79,59 @@ In providing a side by side comparison of our generated posters and the original
   - Initially working with the dataset on the server
     
 
+### Discussion Outline
+- The project’s final product is an app that can present different sets of generated poster images, including images generated based on the entire data set as well as images generated based on genres such as horror or action. 
+
+- The nature of the data and the project goals necessitates a subjective evaluation of the final products; there is no commonly used objective evaluation function for GANs. As a result, the evaluation must purely depend on the viewer’s comparison between the real images and the generated artworks. We performed a qualitative check of images for mode collapse. Loss plots were used predominantly to ensure neither network was training much more quickly than the other. 
+
+- Compared to other similar projects, our image quality is lower resolution, as our current images are 64 x 64 pixels. However, the diversity of images trained is much greater, as the data set is incredibly comprehensive across a variety of different styles and genres of movie posters. 
+
+- In providing a side by side comparison of our generated posters and the original posters that we trained on, we hope to show how images created by neural nets approach realism but still struggle with noticeable visual specificity.
+
+### Rough Draft
+
+#### Methods: 
+We used Pytorch to create a Deep Convolutional Generative Adversarial Network. This network takes poster image inputs from our Kaggle poster dataset of 41,000 images. Each input is a three-channel poster image of 3x64x64 pixels (inputs are resized and center cropped to fit this size). We feed random noise of size 100x1x1 to the generator, which will then output an image of size 3x64x64, which is the same size as the input images. We then concatenate the generated output with real poster images, and then begin the training loop. In each training loop, we first pass a batch of 128 images through the discriminator and update its weights. Once we have trained the discriminator, we then train and update the weights of the generator. While training, we used Adam as our loss function. We trained the generator and discriminator simultaneously, adjusting learning rates and loss functions until we are satisfied with the results.
+
+Additionally, we plan to visualize our model output in order to evaluate its performance. After training, we will look at an array of # images and judge their diversity, quality, and the prevalence of any distinct patterns or shapes. We also save the outputs of the model at multiple steps throughout the training process to create a way of understanding how our model learns.
+
+We took the discriminator and generator architectures from PyTorch’s DCGAN tutorial. The discriminator architecture contains 5 Conv2d layers, each followed by one BatchNorm2d layer and one  in place LeakyReLU (with the exception of the first Conv2d layer, which is followed by only LeakyReLU, and the last Conv2d is followed by a Sigmoid function). Each Conv2d layer has a kernel size (4x4), a stride of 2, and a padding of 1, except for the last layer, which has stride 1 and padding 0.
+
+The generator architecture consists of 5 ConvTranspose2d layers, each followed by one BatchNorm2d layer and one ReLU layer (with the exception of the last ConvTranspose2d layer, which is followed by a Tanh layer). Each ConvTranspose2d layer uses a kernel size of 4x4, a stride of 2, and a padding of 1, with the exception of the first layer, which uses a stride of 1 and a padding of 0.
+
+#### Discussion:
+The project’s final product is a model that can present different sets of generated poster images, including images generated based on the entire data set as well as images generated based on genres such as horror or action. It can also generate a random poster given random noise input.
+
+The nature of the data and the project goals necessitates a subjective evaluation of the final products; there is no commonly used objective evaluation function for GANs. As a result, the evaluation must purely depend on the viewer’s comparison between the real images and the generated artworks. We performed a qualitative check of images for mode collapse. Loss plots were used predominantly to ensure neither network was training much more quickly than the other. 
+However, one of the initial problems that we ran into was a failure to converge, in which the generator and discriminator fail to find an equilibrium. In our case, the discriminator overpowered the generator. This is due to the discriminator training too fast in comparison to the generator, and being able to predict real and fake images near perfectly, and the generator providing fake images that were too easily identifiable. Over multiple epochs, this would continue due to a lack of useful information from the discriminator and the generator would be unable to progress. However, this was eventually fixed by fine-tuning network hyperparameters. 
+
+![Graph of generator and discriminator losses failing to converge](graph1.png)
+
+Compared to other similar projects, our image quality is lower resolution, as our current images are 64 x 64 pixels. However, the diversity of images trained is much greater, as the data set is incredibly comprehensive across a variety of different styles and genres of movie posters. Additionally, we are currently experimenting with models that generate 128 x 128 and 256 x 256 pixel images. However, we are encountering difficulties with either the generator or the discriminator training too quickly and thus failing to converge, much like in the example above. It also presents additional difficulty in balancing the complexity of the discriminator and generator architectures.
+
+In providing a side by side comparison of our generated posters and the original posters that we trained on, we hope to show how images created by neural nets approach realism but still struggle with noticeable visual specificity. Our generated images are approximating the depiction of text and faces, but are still generally illegible or unrecognizable. 
+
+Many of our output images also featured the same specific patterns. This is evidence of mode collapse, in which the generator finds a specific pattern which consistently tricks the discriminator. This hinders the diversity of images which can be generated, and fails to push the generator into creating more realistic images for the sake of tricking the discriminator. 
+
+
+#### Ethics: 
+One of the largest ethical dilemmas with using a GAN to create art is whether or not the GAN itself is the artist. What defines an artist? Is the AI itself the creator of the art, are the creators of the GAN the artists, or even the artists in the training set? By the Visual Artists Rights Act of 1990, this would follow the idea of “human authorship” and the creators of the GAN code would be accredited as the artists, since VARA accepts that artists inject their own personality and ingenuity into their creations. And yet, it’s equally arguable that the results of training and learning are unable to be predicted, and subsequently can create final images far beyond the creators’ predictions; as a result, this creates a wholly novel experience of uniquely created art, and so, the true artist is the AI. 
+
+In addition, projects like ours raise more questions into whether or not the generated works can be attributed to the network itself, and how. We have to consider how training the images on the data set too closely can result in arguable plagiarism, and whether this burden lies on the creators of the network. How can the accreditation of the original artists be reconciled with the creation of GAN art based on their works?
+
+Furthermore, using a network to generate art is something not yet covered thoroughly by current copyright law. It exists in a grey area in current law, and therefore any harmful actions by generative AI doesn’t have clearly defined repercussions. Should current copyright law be extended to AI art? If so, it’s possible for new, creative artworks to be mass-produced and would directly harm smaller creators that are unable to keep up with the rate of production. On the other hand, it’s also commonly argued that AI art cannot be deemed as truly “creative” and therefore has no creative author to accredit, as it fails to generate innovative works and only mimics previously created works. The obvious follow-up question is how “creativity” is defined, and how human creativity will be changed by the introduction of AI creativity. 
+
+However, there still may be ethical space for AI in art. In “Modeling Artistic Workflows for Image Generation and Editing”, the authors of the paper propose a model that generates images in a given art style at different stages in the creative process. The model can generate possible directions for an artist to go given a sketch, or even offer polishing touches on nearly completed work. The existence of such a model suggests that maybe AI can serve as a source of inspiration for human artists. Doing so would avoid the pitfalls of copying work from others and allow people to create art of their own. Like many other issues in tech, the ethicality of using AI for generative art relies on how it is used. Nearly any model can be used for malicious purposes, so we must rely on regulation and awareness to minimize the harm it can do.
+
+#### Reflection:
+We were satisfied with the results of our GAN. Overall, the large dataset (41,000 images) resulted in outputted content that displayed the general aesthetics and colors of movie posters. The “text” in the generated content was particularly interesting, as it seemed to have a sense of font and style despite containing no recognizable letters. We are still currently unable to increase the number of pixels in the generated output from 64x64 to 256x256, making the generated images still quite pixelated. This is a clear area of the project that could be expanded upon further. Because training with more pixels takes longer, we could solve this problem by running the 64x64 images through a network that adds resolution to the generated images.
+
+In the future, we would like to explore different sub-genres of posters. We briefly experimented with generating horror posters, which had a more uniform aesthetics than all genres combined. We could further explore horror posters, in addition to other genres like action. Additionally, most posters generated included faces. One additional step for this project would be to add more training data with faces in order to generate faces with more detail. Overall, this project was an informative exercise in creating a GAN, and left us with some fun (and maybe a little eerie) generated posters.
+
+![Results at 10 epochs](10epochs.png)
+
+![Results at 20 epochs](20epochs.png)
+
+![Results at 100 epochs](30epochs.png)
+
 
