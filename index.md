@@ -40,6 +40,7 @@ Compared to other similar projects, our image quality is lower resolution, as ou
 In providing a side by side comparison of our generated posters and the original posters that we trained on, we hope to show how images created by neural nets approach realism but still struggle with noticeable visual specificity. Our generated images are approximating the depiction of text and faces, but are still generally illegible or unrecognizable. 
 
 ![128x128 image at 300 epochs](128x128.png)
+
 (above: 128x128 image at 300 epochs)
 
 Many of our output images also featured the same specific patterns. This is evidence of mode collapse, in which the generator finds a specific pattern which consistently tricks the discriminator. This hinders the diversity of images which can be generated, and fails to push the generator into creating more realistic images for the sake of tricking the discriminator. We noticed over many epochs, mode collapse appears and then resolves in cycles, as the generator is able to trick the discriminator for a bit before the discriminator recognizes the pattern as being fake.
