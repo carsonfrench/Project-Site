@@ -22,6 +22,8 @@ Additionally, we plan to visualize our model output in order to evaluate its per
 We took the discriminator and generator architectures from PyTorch’s DCGAN tutorial. The discriminator architecture contains 5 Conv2d layers, each followed by one BatchNorm2d layer and one  in place LeakyReLU (with the exception of the first Conv2d layer, which is followed by only LeakyReLU, and the last Conv2d is followed by a Sigmoid function). Each Conv2d layer has a kernel size (4x4), a stride of 2, and a padding of 1, except for the last layer, which has stride 1 and padding 0. 
 The generator architecture consists of 5 ConvTranspose2d layers, each followed by one BatchNorm2d layer and one ReLU layer (with the exception of the last ConvTranspose2d layer, which is followed by a Tanh layer). Each ConvTranspose2d layer uses a kernel size of 4x4, a stride of 2, and a padding of 1, with the exception of the first layer, which uses a stride of 1 and a padding of 0.
 
+![Discriminator and generator architecture](arch.png)
+
 We experimented with the discriminator and generator architectures only when we attempted to modify the size of the input, by adding additional convolutional layers. We decided not to modify the architecture because it is the standard DCGAN architecture, as described in the paper which first introduced DCGANS ([Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks](https://arxiv.org/pdf/1511.06434.pdf)).
 
 ## Discussion:
@@ -37,6 +39,9 @@ Compared to other similar projects, our image quality is lower resolution, as ou
 
 In providing a side by side comparison of our generated posters and the original posters that we trained on, we hope to show how images created by neural nets approach realism but still struggle with noticeable visual specificity. Our generated images are approximating the depiction of text and faces, but are still generally illegible or unrecognizable. 
 
+![128x128 image at 300 epochs](128x128.png)
+(above: 128x128 image at 300 epochs)
+
 Many of our output images also featured the same specific patterns. This is evidence of mode collapse, in which the generator finds a specific pattern which consistently tricks the discriminator. This hinders the diversity of images which can be generated, and fails to push the generator into creating more realistic images for the sake of tricking the discriminator. We noticed over many epochs, mode collapse appears and then resolves in cycles, as the generator is able to trick the discriminator for a bit before the discriminator recognizes the pattern as being fake.
 
 
@@ -49,7 +54,7 @@ Furthermore, using a network to generate art is something not yet covered thorou
 
 However, there still may be ethical space for AI in art. In “Modeling Artistic Workflows for Image Generation and Editing”, the authors of the paper propose a model that generates images in a given art style at different stages in the creative process. The model can generate possible directions for an artist to go given a sketch, or even offer polishing touches on nearly completed work. The existence of such a model suggests that maybe AI can serve as a source of inspiration for human artists. Doing so would avoid the pitfalls of copying work from others and allow people to create art of their own. Like many other issues in tech, the ethicality of using AI for generative art relies on how it is used. Nearly any model can be used for malicious purposes, so we must rely on regulation and awareness to minimize the harm it can do.
 
-#### Reflection:
+## Reflection:
 We were satisfied with the results of our GAN. Overall, the large dataset (41,000 images) resulted in outputted content that displayed the general aesthetics and colors of movie posters. The “text” in the generated content was particularly interesting, as it seemed to have a sense of font and style despite containing no recognizable letters. We are still currently unable to increase the number of pixels in the generated output from 64x64 to 256x256, making the generated images still quite pixelated. This is a clear area of the project that could be expanded upon further. Because training with more pixels takes longer, we could solve this problem by running the 64x64 images through a network that adds resolution to the generated images.
 
 In the future, we would like to explore different sub-genres of posters. We briefly experimented with generating horror posters, which had a more uniform aesthetics than all genres combined. We could further explore horror posters, in addition to other genres like action. Additionally, most posters generated included faces. One additional step for this project would be to add more training data with faces in order to generate faces with more detail. Overall, this project was an informative exercise in creating a GAN, and left us with some fun (and maybe a little eerie) generated posters.
